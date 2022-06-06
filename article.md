@@ -36,3 +36,10 @@ a = 42
 def bar(x):
     print(x)
 ```
+## ITERATORS AND GENERATORS PROTOCOL
+## PLAN
+# Iterators
+# Generators
+# Comparison between Iterators and Generators
+# Practical cases
+# Conclusion
