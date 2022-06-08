@@ -1,6 +1,6 @@
 ---
 title: |
-  "ITERATORS AND GENERATORS PROTOCOL IN PYTHON"
+  **ITERATORS AND GENERATORS PROTOCOL IN PYTHON**
 date: June, 2022
 lang: en-EN
 urlcolor: blue
@@ -36,9 +36,13 @@ a = 42
 def bar(x):
     print(x)
 ```
-# WORK PLAN
-## Iterators
-## Generators
-## Comparison between Iterators and Generators
-## Practical cases
-## Conclusion
+# **WORK PLAN**
+## **Iterators**
+## **Generators**
+## **Comparison between Iterators and Generators**
+## **Practical cases**
+## **Conclusion** 
+
+\pagebreak
+# Iterators
+An iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of __iter__() and __next__() methods.
