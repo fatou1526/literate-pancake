@@ -1,7 +1,7 @@
 ---
 title: |
-  "Introduction to Python modules."
-date: May, 2022
+  "ITERATORS AND GENERATORS PROTOCOL IN PYTHON"
+date: June, 2022
 lang: en-EN
 urlcolor: blue
 geometry: "left=2.5cm,right=2.5cm,top=3cm,bottom=3cm"
@@ -12,13 +12,13 @@ header-includes: |
     \pagestyle{fancy}
     \fancyhf{}
     \rhead{Dakar Institute of Technology}
-    \lhead{Patrick Nsukami}
+    \lhead{Ndeye Fatou Sene}
     \rfoot{Page \thepage}
     \hypersetup{pdftex,
-            pdfauthor={Patrick Nsukami},
-            pdftitle={Introduction to Python programming},
-            pdfsubject={Introduction to Python programming},
-            pdfkeywords={Python, Programming},
+            pdfauthor={Ndeye Fatou Sene},
+            pdftitle={ITERATORS AND GENERATORS PROTOCOL IN PYTHON},
+            pdfsubject={ITERATORS AND GENERATORS PROTOCOL IN PYTHON},
+            pdfkeywords={Python, Iterators, Generators},
             pdfproducer={Emacs, Pandoc, Latex, Markdown},
             pdfcreator={Emacs, Pandoc, Latex, Markdown}}
     
@@ -36,10 +36,9 @@ a = 42
 def bar(x):
     print(x)
 ```
-## ITERATORS AND GENERATORS PROTOCOL
-## WORK PLAN
-# Iterators
-# Generators
+### WORK PLAN
+## Iterators
+## Generators
 # Comparison between Iterators and Generators
 # Practical cases
 # Conclusion
