@@ -36,9 +36,9 @@ a = 42
 def bar(x):
     print(x)
 ```
-### WORK PLAN
+# WORK PLAN
 ## Iterators
 ## Generators
-# Comparison between Iterators and Generators
-# Practical cases
-# Conclusion
+## Comparison between Iterators and Generators
+## Practical cases
+## Conclusion
