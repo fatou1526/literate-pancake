@@ -37,7 +37,7 @@ def bar(x):
     print(x)
 ```
 ## ITERATORS AND GENERATORS PROTOCOL
-## PLAN
+## WORK PLAN
 # Iterators
 # Generators
 # Comparison between Iterators and Generators
