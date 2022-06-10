@@ -45,4 +45,5 @@ def bar(x):
 
 \pagebreak
 # Iterators
-An iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of __iter__() and __next__() methods.
+In Python, an iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The \_\_iter\_\_() method returns the iterator itself. The \_\_next\_\_() method returns the next item in the sequence.\ An iterator always remember its current state during iteration so that it can step forward the next value of the iterable. 
+
