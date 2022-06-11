@@ -70,5 +70,7 @@ print(next(myiter))
 print(next(myiter))
 
 ```
+**Notice**
+From the examples, we can see that the \_\_next\_\_() method would continue as long as it is called. To avoid that, one can define a condition or uses the StopIteration statement to raise an error if the specified iterations number is done.
 
 
