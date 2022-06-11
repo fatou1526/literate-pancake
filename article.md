@@ -23,19 +23,6 @@ header-includes: |
             pdfcreator={Emacs, Pandoc, Latex, Markdown}}
     
 ---
-
-# Foo:
-
-foo bar baz
-
-```python
-# module foo.py
-
-a = 42
-
-def bar(x):
-    print(x)
-```
 # **WORK PLAN**
 ## **Iterators**
 ## **Generators**
@@ -47,7 +34,7 @@ def bar(x):
 # Iterators
 In Python, an iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The \_\_iter\_\_() method returns the iterator itself. The \_\_next\_\_() method returns the next item in the sequence.\
 An iterator always remembers its current state during iteration so that it can step forward the next value of the iterable. An iterator can be obtained from lists, tuples, strings, dictionnaries and sets.\
-**Examples** \
+**Example 1** \
 ```python
 # Return an iterator from a string and print some values
 
@@ -62,15 +49,28 @@ print(next(myiter))
 print(next(myiter))
 print(next(myiter))
 
+```
+**Example 2**
+```python
 #return an iterator from a dictionnary and print some values
 mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
 myiter = iter(mydico)
 print(next(myiter))
 print(next(myiter))
 print(next(myiter))
-
 ```
 **Notice**
 From the examples, we can see that the \_\_next\_\_() method would continue as long as it is called. To avoid that, one can define a condition or uses the StopIteration statement to raise an error if the specified iterations number is done.
+**Example 3**
+```python
+mystring = "foobarbaz"
+myiter = iter(mystring)
+while True:
+  try:
+    item = next(myiter)
+    print(item)
+  except StopIteration:
+    break
+```
 
 
