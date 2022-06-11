@@ -45,5 +45,30 @@ def bar(x):
 
 \pagebreak
 # Iterators
-In Python, an iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The \_\_iter\_\_() method returns the iterator itself. The \_\_next\_\_() method returns the next item in the sequence.\ An iterator always remember its current state during iteration so that it can step forward the next value of the iterable. 
+In Python, an iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The \_\_iter\_\_() method returns the iterator itself. The \_\_next\_\_() method returns the next item in the sequence.\
+An iterator always remembers its current state during iteration so that it can step forward the next value of the iterable. An iterator can be obtained from lists, tuples, strings, dictionnaries and sets.\
+**Examples** \
+```python
+# Return an iterator from a string and print some values
+
+mystring = "Python is more than a snake"
+myiter = iter(mystring)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+
+#return an iterator from a dictionnary and print some values
+mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
+myiter = iter(mydico)
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+
+```
+
 
