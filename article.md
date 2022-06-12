@@ -32,9 +32,18 @@ header-includes: |
 
 \pagebreak
 # Iterators
-In Python, an iterator is an object containing a countable number of elements and which implements the iterator protocols. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The \_\_iter\_\_() method initializes the iterator and returns an iterator object. The \_\_next\_\_() method is used for iteration and it returns the next item in the iterable.\
-An iterator always remembers its current state during iteration so that it can step forward the next value of the iterable. Iterable objects are lists, tuples, strings, dictionnaries and sets.\
-**Example 1** \
+Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have lists, tuples, strings, dictionnaries, sets and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
+**Example**
+```python
+# Check the presence of iter() method for an object of type dictionnary
+mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
+print(dir(mydico))
+
+['__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__ior__', '__iter__', '__le__', '__len__', '__lt__', '__ne__', '__new__', '__or__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__ror__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+```
+The \_\_next\_\_() method is used for iteration and it returns the next item in the iterable.\
+\
+**Example 1**\
 ```python
 #return an iterator from a dictionnary and print some values
 mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
