@@ -92,9 +92,9 @@ Traceback (most recent call last):
     print(next(myiter))
 StopIteration
 ```
-**Notice**
+**Notice**\
 The error is due to the fact that the next method were called a number of times greater than the length of the object. Then, it goes throgh all items and returns an error once there is not a value anymore. To avoid that, one can define a condition or uses the StopIteration statement to stop the iteration once the iterations are complete.\
-**Example 4**
+**Example 4**\
 Code:\
 ```python
 # Stop iteration when the last element is reached.
@@ -121,6 +121,7 @@ z
 ```
 Let try to obtain an iterator using a class object.\
 **Example 5**\
+Code:\
 ```python
 # An example using class object
 class Interval:
