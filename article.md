@@ -148,6 +148,7 @@ Output:\
 28
 29
 ```
+\pagebreak
 # Generators
 In python, there are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
 A generator object is the object yield by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Then, the generator method is an iterator and a generator object is an iterable.\
