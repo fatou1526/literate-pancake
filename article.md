@@ -190,7 +190,22 @@ foo
 bar
 baz
 ```
-Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.
+Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.\
+**Example 8**\
+Let compare the size of a list myList and the size of the generator range
+Code:\
+```python
+import sys
+# Using a list
+myList = [0, 1, 2, 3, 4]
+print("The memory size of the list my List is: ", sys.getsizeof(myList))
 
-
+# Using the range
+print("The memory size using the range is: ", sys.getsizeof(range(5)))
+```
+Output:\
+```python
+The memory size of the list my List is:  120
+The memory size using the range is:  48
+```
 
