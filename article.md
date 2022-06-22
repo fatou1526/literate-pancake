@@ -226,3 +226,7 @@ Output:\
 The memory size of the list my List is:  152
 The memory size using the range is:  48
 ```
+
+\pagebreak
+# Comparison between Iterators and Generators
+Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" keyword. Iterators are usually used to to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
