@@ -179,16 +179,12 @@ baz
 ```
 Code:\
 ```python
-# Using the a 'for' loop to yield the object    
-myString1 = myFirstGen()
-for i in myString1:
-    print(i)
+genExp = (x*x for x in range(10))
+print(genExp)
 ```
 Output:\
 ```python
-foo
-bar
-baz
+<generator object <genexpr> at 0x000001A1CD9E05F0>
 ```
 Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.\
 **Example 8**\
@@ -226,7 +222,11 @@ Output:\
 The memory size of the list my List is:  152
 The memory size using the range is:  48
 ```
+Generator method can be written in a list comprehension form; it is called generator expression.\
+**Example 10**\
 
 \pagebreak
 # Comparison between Iterators and Generators
-Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" keyword. Iterators are usually used to to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
+Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
+\pagebreak
+# Practical cases
