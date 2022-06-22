@@ -151,8 +151,46 @@ Output:\
 \pagebreak
 # Generators
 In python, there are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
-A generator object is the object yield by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Then, the generator method is an iterator and a generator object is an iterable.\
-Therefore, python generators proceed to create iterators and iterables. uch a process is called lazy evaluation because the genertor object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.
+**Example 6**\
+Code:\
+```python
+def myFirstGen():
+    yield "foo"
+    yield "bar"
+    yield "baz"
+```
+A generator object is the object yield by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Thus, the generator method is an iterator and a generator object is an iterable.\
+Therefore, python generators proceed to create iterators and iterables.\
+**Example 7**\
+From the example above, we create the following iterable.\
+Code:\
+```python
+# Using the next method to yield the object    
+myString = myFirstGen()
+print(myString.__next__())
+print(myString.__next__())
+print(myString.__next__())
+```
+Output:\
+```python
+foo
+bar
+baz
+```
+Code:\
+```python
+# Using the a 'for' loop to yield the object    
+myString1 = myFirstGen()
+for i in myString1:
+    print(i)
+```
+Output:\
+```python
+foo
+bar
+baz
+```
+Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.
 
 
 
