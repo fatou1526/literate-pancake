@@ -148,8 +148,21 @@ Output:\
 28
 29
 ```
+\pagebreak
+# Generators
+In python, there are generator methods and generator objects.\A generator is a method that generates a value using the keyword "yield". In this case, "yield" keyword replaces the "return" statement that is commonly used by a lot of python's methods.\
+**Example 6**\
+Code:\
+```python
 
+```
 
+Output:\
+```python
+
+```
+A generator object is the object yield by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a "for" loop. Then, the generator method is an iterator and a generator object is an iterable.\
+Therefore, python generators proceed to create iterators and iterables. uch a process is called "lazy evaluation" because the genertor object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.
 
 
 
