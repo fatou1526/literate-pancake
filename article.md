@@ -31,7 +31,7 @@ header-includes: |
 
 
 \pagebreak
-# Iterators
+## Iterators
 Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have collections like lists, tuples, strings, dictionnaries, sets... and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
 **Example 1**\
 Code:\
@@ -270,7 +270,7 @@ Every generator is an iterator but every iterator is not a generator. There are 
 
 
 ## Use cases in data files
-Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However, data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and becomes boring sometimes because there are a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.
+Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However, data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and becomes boring sometimes because there are a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.\
 **Example 12** Counting occurrence of words in textfile\
 Code:\
 ```python
