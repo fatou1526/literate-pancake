@@ -1,4 +1,3 @@
-+6
 ---
 title: |
   **ITERATORS AND GENERATORS PROTOCOL IN PYTHON**
