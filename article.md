@@ -27,8 +27,8 @@ header-includes: |
 ## **Iterators**
 ## **Generators**
 ## **Comparison between Iterators and Generators**
-## **Practical cases**
-## **Conclusion** 
+## **Use cases in data files**
+
 
 \pagebreak
 # Iterators
@@ -70,7 +70,7 @@ Output:\
 '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
 ```
 Iterators have both \_\_next\_\_() and \_\_iter\_\_() methods. Iterators are also iterables which are their own iterators. The only difference with collections is that iterators do not have length.\
-**Example**\
+**Example 3**\
 code:\
 ```python
 mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
@@ -80,14 +80,14 @@ print(len(iterator))
 Output:\
 ```python
 File "c:\Users\user\Desktop\DIT\Python\literate-pancake\myExamples.py", line 48, in <module>
-print(len(iterator))
+  print(len(iterator))
 TypeError: object of type 'dict_valueiterator' has no len()
 ```
 Now let add some examples to explore the iteration process.\
-**Example 3**\
+**Example 4**\
 code:\
 ```python
-#return an iterator from a dictionnary and print some values
+# Return an iterator from a dictionary and print some values
 mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
 myiter = iter(mydico.values())
 print(next(myiter))
@@ -106,8 +106,8 @@ Traceback (most recent call last):
 StopIteration
 ```
 **Notice**\
-The error is due to the fact that the next method were called a number of times greater than the length of the object. Then, it goes throgh all items and returns an error once there is not a value anymore. To avoid that, one can define a condition or uses the StopIteration statement to stop the iteration once the iterations are complete.\
-**Example 4**\
+The error is due to the fact that the next method were called a number of times greater than the length of the object. Then, it goes throgh all items and returns an error once there is not anymore value. To avoid that, one can define a condition or uses the StopIteration statement to stop the iteration once the iterations are complete.\
+**Example 5**\
 Code:\
 ```python
 # Stop iteration when the last element is reached.
@@ -133,7 +133,7 @@ a
 z
 ```
 Let try to obtain an iterator using a class object.\
-**Example 5**\
+**Example 6**\
 Code:\
 ```python
 # An example using class object
@@ -166,7 +166,7 @@ Some iterators do not do anything until we ask them to act. They are called gene
 \pagebreak
 ## Generators
 In python, generators are lazy iterators that remain in one state waiting us to ask them the next item of a collection. There are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
-**Example 6**\
+**Example 7**\
 Code:\
 ```python
 def myFirstGen():
@@ -174,9 +174,9 @@ def myFirstGen():
     yield "bar"
     yield "baz"
 ```
-A generator object is the object yield by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Thus, the generator method is an iterator and a generator object is an iterable.\
+A generator object is the object yielded by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Thus, the generator method is an iterator and a generator object is an iterable.\
 Therefore, python generators proceed to create iterators and iterables.\
-**Example 7**\
+**Example 8**\
 From the example above, we create the following iterable.\
 Code:\
 ```python
@@ -194,6 +194,7 @@ baz
 ```
 Code:\
 ```python
+# Using a 'for' loop
 myString = myFirstGen()
 for i in myString:
   print(i)
@@ -204,8 +205,8 @@ foo
 bar
 baz
 ```
-Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.\
-**Example 8**\
+Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than storing all of them in memory. Thanks to the generators, the memory size will never change whatever the number of iterations.\
+**Example 9**\
 Let compare the size of a list myList and the size of the generator "range"\
 Code:\
 ```python
@@ -214,7 +215,7 @@ import sys
 myList = [0, 1, 2, 3, 4]
 print("The memory size of the list my List is: ", sys.getsizeof(myList))
 
-# Using the range
+# Using the generator 'range'
 print("The memory size using the range is: ", sys.getsizeof(range(5)))
 ```
 Output:\
@@ -222,9 +223,9 @@ Output:\
 The memory size of the list my List is:  120
 The memory size using the range is:  48
 ```
-The size of memory when using the generator "range" is less because instead of storing values, it yields them only when needed. Therefore, its size will not change even if the number of iterations increases.\
-**Example 9**\
-Let increase the size of a list myList and the size of the generator range\
+The size of memory when using the generator "range" is less because instead of storing values in memory, it yields them only when needed. Therefore, its size will not change even if the number of iterations increases.\
+**Example 10**\
+Let increase the size of a list myList and the size of the generator 'range'\
 Code:\
 ```python
 import sys
@@ -232,7 +233,7 @@ import sys
 myList = [0, 1, 2, 3, 4, 5, 6,7, 8, 9, 10]
 print("The memory size of the list my List is: ", sys.getsizeof(myList))
 
-# Using the range
+# Using the genrator 'range'
 print("The memory size using the range is: ", sys.getsizeof(range(100)))
 ```
 Output:\
@@ -241,7 +242,7 @@ The memory size of the list my List is:  152
 The memory size using the range is:  48
 ```
 Generator method can be written in a list comprehension form; it is called generator expression.\
-**Example 10**\
+**Example 11**\
 Code:\
 ```python
 genExp = (x*x for x in range(10))
@@ -267,10 +268,10 @@ Output:\
 ## Comparison between Iterators and Generators
 Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.\
 
-\pagebreak
-## Practical uses in large data files
-Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and make boring sometimes because their is a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.
-**Example 10** Counting occurrence of words in textfile\
+
+## Use cases in data files
+Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However, data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and becomes boring sometimes because there are a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.
+**Example 12** Counting occurrence of words in textfile\
 Code:\
 ```python
 """
@@ -312,7 +313,50 @@ for row in sorted(w_count.items(), key=lambda x: x[1]):
     print(row[0], ': ', row[1])
 
 ```
-**Example 10**\
+Output:\
+```python
+words :  1
+spread :  1
+its :  1
+magic :  1
+and :  1
+it :  1
+offers :  1
+a :  1
+better :  1
+life. :  1
+quality :  1
+is; :  1
+actions :  1
+speak :  1
+of :  1
+knowledge. :  1
+bother :  1
+people :  1
+back; :  1
+make :  1
+them :  1
+silent :  1
+with :  1
+work. :  1
+all :  1
+good :  1
+things :  1
+will :  1
+definitely :  1
+knock :  1
+door. :  1
+let :  2
+the :  2
+on :  2
+you :  2
+do :  2
+not :  2
+say :  2
+what :  2
+your :  6
+```
+**Example 13**\
 Code:\
 ```python
 """
