@@ -179,12 +179,15 @@ baz
 ```
 Code:\
 ```python
-genExp = (x*x for x in range(10))
-print(genExp)
+myString = myFirstGen()
+for i in myString:
+  print(i)
 ```
 Output:\
 ```python
-<generator object <genexpr> at 0x000001A1CD9E05F0>
+foo
+bar
+baz
 ```
 Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than store all of them in memory. Thanks to the generators, the memory size does never change whatever the number of iterations is.\
 **Example 8**\
@@ -224,9 +227,30 @@ The memory size using the range is:  48
 ```
 Generator method can be written in a list comprehension form; it is called generator expression.\
 **Example 10**\
-
+Code:\
+```python
+genExp = (x*x for x in range(10))
+print(genExp)
+for i in genExp:
+    print(i)
+```
+Output:\
+```python
+<generator object <genexpr> at 0x00000295DBF505F0>
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+```
 \pagebreak
 # Comparison between Iterators and Generators
 Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
 \pagebreak
-# Practical cases
+# Practical uses in large data files
+Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
