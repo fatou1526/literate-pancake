@@ -33,7 +33,7 @@ header-includes: |
 
 \pagebreak
 # Iterators
-Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have lists, tuples, strings, dictionnaries, sets and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
+Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have collections like lists, tuples, strings, dictionnaries, sets... and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
 **Example 1**
 Code:\
 ```python
@@ -70,7 +70,20 @@ Output:\
 '__lt__', '__ne__', '__new__', '__next__', '__reduce__', 
 '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
 ```
-The iterator has both \_\_next\_\_() and \_\_iter\_\_() methods.
+The iterator has both \_\_next\_\_() and \_\_iter\_\_() methods. Iterators are also iterables which are their own iterators. The only difference with collections is that iterators do not have length.\
+**Example 3**\
+code:\
+```python
+mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
+iterator = iter(mydico.values())
+print(len(iterator))
+```
+Output:\
+```python
+File "c:\Users\user\Desktop\DIT\Python\literate-pancake\myExamples.py", line 48, in <module>
+    print(len(iterator))
+TypeError: object of type 'dict_valueiterator' has no len()
+```
 Now let add some examples to explore the iteration process.\
 **Example 3**\
 code:\
@@ -149,9 +162,10 @@ Output:\
 28
 29
 ```
+Some iterators do not do anything until we ask them to act. They are called generators or lazy iterators.
 \pagebreak
 # Generators
-In python, there are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
+In python, generators are lazy iterators that remain in one state waiting us to ask them the next item of a collection. There are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
 **Example 6**\
 Code:\
 ```python
@@ -251,6 +265,7 @@ Output:\
 ```
 \pagebreak
 # Comparison between Iterators and Generators
-Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.\
+Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
+
 # Practical uses in large data files
-Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
+Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundreds line. That wastes time and make boring sometimes because their is a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. whe best approach Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
