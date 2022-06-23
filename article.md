@@ -1,3 +1,4 @@
++6
 ---
 title: |
   **ITERATORS AND GENERATORS PROTOCOL IN PYTHON**
@@ -250,7 +251,6 @@ Output:\
 ```
 \pagebreak
 # Comparison between Iterators and Generators
-Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
-\pagebreak
+Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.\
 # Practical uses in large data files
 Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
