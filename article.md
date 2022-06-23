@@ -385,7 +385,7 @@ with open('clients.csv') as file_handler:
 
 \pagebreak
 ## References
-https://www.geeksforgeeks.org/generators-in-python/
-https://anandology.com/python-practice-book/iterators.html
-https://www.machinelearningplus.com/python/generators-in-python/
+https://www.geeksforgeeks.org/generators-in-python/  \
+https://anandology.com/python-practice-book/iterators.html \
+https://www.machinelearningplus.com/python/generators-in-python/ \
 https://towardsdatascience.com/implementing-a-data-pipeline-by-chaining-python-iterators-b5887c2f0ec6
