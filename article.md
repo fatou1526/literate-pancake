@@ -74,20 +74,6 @@ The iterator has both \_\_next\_\_() and \_\_iter\_\_() methods. Iterators are a
 **Example 3**\
 code:\
 ```python
-mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
-iterator = iter(mydico.values())
-print(len(iterator))
-```
-Output:\
-```python
-File "c:\Users\user\Desktop\DIT\Python\literate-pancake\myExamples.py", line 48, in <module>
-    print(len(iterator))
-TypeError: object of type 'dict_valueiterator' has no len()
-```
-Now let add some examples to explore the iteration process.\
-**Example 3**\
-code:\
-```python
 #return an iterator from a dictionnary and print some values
 mydico = {"1":"Hello", "2":[1, 4, "foo"], "3":(6,8,3,)}
 myiter = iter(mydico.values())
@@ -266,3 +252,5 @@ Output:\
 \pagebreak
 # Comparison between Iterators and Generators
 Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.
+# Practical uses in large data files
+Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundreds line. That wastes time and make boring sometimes because their is a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. whe best approach Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
