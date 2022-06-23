@@ -162,6 +162,7 @@ Output:\
 29
 ```
 Some iterators do not do anything until we ask them to act. They are called generators or lazy iterators.\
+
 \pagebreak
 ## Generators
 In python, generators are lazy iterators that remain in one state waiting us to ask them the next item of a collection. There are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
@@ -311,7 +312,7 @@ for row in sorted(w_count.items(), key=lambda x: x[1]):
     print(row[0], ': ', row[1])
 
 ```
-
+**Example 10**\
 Code:\
 ```python
 """
@@ -319,14 +320,21 @@ Here, we open the csv file clients.csv and yield data per one single value using
 """
 import csv
 file_handler = open('clients.csv','r')
-def read_large_file(file_handler):
+"""
+read_file method returns a list that contains each line of the csv file
+The elements in the list block are not stored in memory, they are yielded only
+when needed. 
+"""
+def read_file(file_handler):
     block = []
     for line in file_handler:
         block.append(line)
     if block:
         yield block
-
+"""
+Now, we go through the list to show all values
+"""
 with open('clients.csv') as file_handler:
-    for block in read_large_file(file_handler):
+    for block in read_file(file_handler):
         print(block)
 ```
