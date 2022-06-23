@@ -28,7 +28,7 @@ header-includes: |
 ## **Generators**
 ## **Comparison between Iterators and Generators**
 ## **Use cases in data files**
-
+## **References**
 
 \pagebreak
 ## Iterators
@@ -382,3 +382,10 @@ with open('clients.csv') as file_handler:
     for block in read_file(file_handler):
         print(block)
 ```
+
+\pagebreak
+## References
+https://www.geeksforgeeks.org/generators-in-python/
+https://anandology.com/python-practice-book/iterators.html
+https://www.machinelearningplus.com/python/generators-in-python/
+https://towardsdatascience.com/implementing-a-data-pipeline-by-chaining-python-iterators-b5887c2f0ec6
