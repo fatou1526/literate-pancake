@@ -161,9 +161,9 @@ Output:\
 28
 29
 ```
-Some iterators do not do anything until we ask them to act. They are called generators or lazy iterators.
+Some iterators do not do anything until we ask them to act. They are called generators or lazy iterators.\
 \pagebreak
-# Generators
+## Generators
 In python, generators are lazy iterators that remain in one state waiting us to ask them the next item of a collection. There are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
 **Example 6**\
 Code:\
@@ -265,6 +265,68 @@ Output:\
 \pagebreak
 ## Comparison between Iterators and Generators
 Every generator is an iterator but every iterator is not a generator. There are several differences between iterators and generators. Iterators uses \_\_iter\_\_() and \_\_next\_\_() methods while generators uses the "yield" statement. Iterators are usually used to iterate or convert objects to get an iterator while generators are used in loops to generate an iterator. For a generator, local variables are stored before the yielding process. For an iterator, local variables are not used. Classes are used for iterators while methods are for generators.\
+
 \pagebreak
 ## Practical uses in large data files
-Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundreds line. That wastes time and make boring sometimes because their is a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generator are very useful in BigData. Their biggest achievement is that they can help processing large data files without storing the data in the RAM.
+Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and make boring sometimes because their is a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.
+**Example 10** Counting occurrence of words in textfile\
+Code:\
+```python
+"""
+Here, we are going to use generators to count 
+the occurrence of each word in the textfile fileName
+First of all the content of the textfile is opened line by line
+not loaded all in memory
+"""
+file = open('fileName.txt', 'r') 
+"""
+The removeGen method go through the lines of the file and remove whitespaces using strip,
+put all character in lowercase using lower method
+and break each line into a list of word using split method
+"""
+def removeGen(file_handler):
+    for row in file_handler:
+        remove_ws = row.strip().lower().split()
+        yield remove_ws
+"""
+We consider the word_count as a method that returns a dictionary with each word as
+a key and its occurence as the value
+"""       
+def word_count(dict, key):
+    dict[key] = dict.setdefault(key, 0) + 1
+
+"""
+We iterate using the generator method removeGen and use the word_count method
+as a list comprehension to update the number of occurence.
+When it is done, we close the file
+"""  
+w_count = {}
+for row in removeGen(file):
+    [ word_count(w_count, word) for word in row ]
+file.close()
+"""
+Now print the results
+"""
+for row in sorted(w_count.items(), key=lambda x: x[1]):
+    print(row[0], ': ', row[1])
+
+```
+
+Code:\
+```python
+"""
+Here, we open the csv file clients.csv and yield data per one single value using generator instead of storing all values at once
+"""
+import csv
+file_handler = open('clients.csv','r')
+def read_large_file(file_handler):
+    block = []
+    for line in file_handler:
+        block.append(line)
+    if block:
+        yield block
+
+with open('clients.csv') as file_handler:
+    for block in read_large_file(file_handler):
+        print(block)
+```
