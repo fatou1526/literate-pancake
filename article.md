@@ -165,7 +165,9 @@ Some iterators do not do anything until we ask them to act. They are called gene
 
 \pagebreak
 ## Generators
-In python, generators are lazy iterators that remain in one state waiting us to ask them the next item of a collection. There are generator methods and generator objects. A generator is a method that generates a value using the keyword yield. In this case, yield keyword replaces the return statement that is commonly used by a lot of python methods.\
+In python, generators are lazy iterators that yield one item of a collection and waiting until the next item is required. They are used to control the iteration of a loop by suspending and resuming the process. Generators create iterators and iterables. Generators can be compiled in two forms: the generator methods and generator expressions.\
+1. Generator methods
+ A generator method is defined as a python method that uses the keyword 'yield' instead of the keyword 'return' that is mostly used by normal python methods. In this case, yield keyword replaces the return statement. Yielding a value means that the generator method gives the next item of the collection based on its current state and suspends the execution until the following value is needed to resume the process. Generator methods are also called suspendable or resumable methods. The object yielded by the generator method is called a generator object. It is obtained using \_\_next\_\_() method or a for loop. Therefore, a generator method is an iterator and a generator object is an iterable.\
 **Example 7**\
 Code:\
 ```python
@@ -174,10 +176,9 @@ def myFirstGen():
     yield "bar"
     yield "baz"
 ```
-A generator object is the object yielded by the generator method. The object is obtained by iterating using \_\_next\_\_() method or in a for loop. Thus, the generator method is an iterator and a generator object is an iterable.\
-Therefore, python generators proceed to create iterators and iterables.\
+
 **Example 8**\
-From the example above, we create the following iterable.\
+Still using the example above, we create the following iterable.\
 Code:\
 ```python
 # Using the next method to yield the object    
@@ -205,7 +206,11 @@ foo
 bar
 baz
 ```
-Using generator to create iterators is called lazy evaluation process because the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than storing all of them in memory. Thanks to the generators, the memory size will never change whatever the number of iterations.\
+2. Generator expressions
+
+
+
+The generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than storing all of them in memory. Thanks to the generators, the memory size will never change whatever the number of iterations.\
 **Example 9**\
 Let compare the size of a list myList and the size of the generator "range"\
 Code:\
