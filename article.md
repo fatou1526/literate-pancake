@@ -31,7 +31,7 @@ header-includes: |
 ## **References**
 
 \pagebreak
-## Iterators
+# $\color{MediumBlue}{\text{Iterators}}$
 Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have collections like lists, tuples, strings, dictionnaries, sets... and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
 **Example 1**\
 Code:\
@@ -167,7 +167,7 @@ Some iterators do not do anything until we ask them to act. They are called gene
 ## Generators
 In python, generators are lazy iterators that yield one item of a collection and waiting until the next item is required. They are used to control the iteration of a loop by suspending and resuming the process. Generators create iterators and iterables. Generators can be compiled in two forms: the generator methods and generator expressions.\
 1. Generator methods
- A generator method is defined as a python method that uses the keyword 'yield' instead of the keyword 'return' that is mostly used by normal python methods. In this case, yield keyword replaces the return statement. Yielding a value means that the generator method gives the next item of the collection based on its current state and suspends the execution until the following value is needed to resume the process. Generator methods are also called suspendable or resumable methods. The object yielded by the generator method is called a generator object. It is obtained using \_\_next\_\_() method or a for loop. Therefore, a generator method is an iterator and a generator object is an iterable.\
+ A generator method is defined as a python method that uses the keyword 'yield' instead of the keyword 'return' that is mostly used by normal python methods.The 'return statement' in python exit from the code while the 'yield statement' stands by the running process at the current item and resumes it when the next item is needed. So, yielding a value means that the generator method gives the next item of the collection based on its current state and suspends the execution until the following value is needed. Thus, generator methods are also called suspendable or resumable methods. The object yielded by the generator method is called a generator object. It is obtained using \_\_next\_\_() method or a for loop. Therefore, a generator method is an iterator and a generator object is an iterable.\
 **Example 7**\
 Code:\
 ```python
@@ -206,12 +206,20 @@ foo
 bar
 baz
 ```
-2. Generator expressions
-
-
-
-The generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than storing all of them in memory. Thanks to the generators, the memory size will never change whatever the number of iterations.\
+2. Generator expressions\
+Generator expressions are a mix of iterators and python list comprehensions. They provide syntactic sugar for writing generator methods or class iterators in a beautiful single-line of code. A generator expression does not contain the 'yield' keyword. A difference between list comprehensions and generator expressions is that list comprehensions returns all items of the list while the generator expressions yield one value at a time. In addition, the list comprehension statement is enclosed in square brackets while the generator expression is written in parentheses.\
 **Example 9**\
+This is a list comprehension\
+```python
+list_comprehension = ["hello world" for i in range(3)]
+```
+This is a generator expression\
+```python
+gen_expression = ("hello world" for in range(3))
+```
+For both generator methods and genarator expressions, the generator object is only evaluated when it is needed for use not when it is created. That means they yield one value at a time rather than storing all of them in memory. Thanks to the generators, the memory size will never change whatever the number of iterations.\
+
+**Example 10**\
 Let compare the size of a list myList and the size of the generator "range"\
 Code:\
 ```python
@@ -229,7 +237,7 @@ The memory size of the list my List is:  120
 The memory size using the range is:  48
 ```
 The size of memory when using the generator "range" is less because instead of storing values in memory, it yields them only when needed. Therefore, its size will not change even if the number of iterations increases.\
-**Example 10**\
+**Example 11**\
 Let increase the size of a list myList and the size of the generator 'range'\
 Code:\
 ```python
@@ -247,7 +255,7 @@ The memory size of the list my List is:  152
 The memory size using the range is:  48
 ```
 Generator method can be written in a list comprehension form; it is called generator expression.\
-**Example 11**\
+**Example 12**\
 Code:\
 ```python
 genExp = (x*x for x in range(10))
@@ -276,7 +284,7 @@ Every generator is an iterator but every iterator is not a generator. There are 
 
 ## Use cases in data files
 Dealing with data in python can seem difficult when we fail to find a good way. When processing a simple collection of items, one can define single methods. However, data scientists face big data and then need a good approach to manipulate them. Therefore, writing single methods will give a code of hundred lines. That wastes time and becomes boring sometimes because there are a lot of workforce and brain activities. Thus, iterators and generators could give a way through a simple pipeline. Generators are most useful when working with textfiles or data streams. Their biggest achievement is that they can help processing large data files without storing the data in the RAM. We are going to give some examples of use-cases for generators as they can be considered as iterators too.\
-**Example 12** Counting occurrence of words in textfile\
+**Example 13** Counting occurrence of words in textfile\
 Code:\
 ```python
 """
@@ -361,7 +369,7 @@ say :  2
 what :  2
 your :  6
 ```
-**Example 13**\
+**Example 14**\
 Code:\
 ```python
 """
