@@ -31,7 +31,7 @@ header-includes: |
 ## **References**
 
 \pagebreak
-# $\color{MediumBlue}{\text{Iterators}}$
+## Iterators
 Basically, an iterator is an object which is used to iterate over items. In Python, an iterator is an object/class containing a countable number of elements and which implements the iterator protocols. In order to remember its current state during iteration, an iterator need an initialized iterable. Iterables are objects whose items can be looped over. For example, in Python we have collections like lists, tuples, strings, dictionnaries, sets... and classes containing the iterator protocols called magic or dunder methods. The iterator protocols consist of \_\_iter\_\_() and \_\_next\_\_() methods. The initialization process of the iterable is done using the \_\_iter\_\_() method. It returns the iterator itself. An iterable always has a \_\_iter\_\_() method.\
 **Example 1**\
 Code:\
